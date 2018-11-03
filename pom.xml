@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>pom</packaging>
+
+  <groupId>com.lichkin.projects</groupId>
+  <artifactId>lichkin-projects-app</artifactId>
+  <version>1.0.0.RELEASE</version>
+
+  <parent>
+    <groupId>com.lichkin.projects</groupId>
+    <artifactId>lichkin-projects-core</artifactId>
+    <version>1.0.0.RELEASE</version>
+  </parent>
+
+  <properties>
+    <com.lichkin.projects.app.version>1.0.0.RELEASE</com.lichkin.projects.app.version>
+  </properties>
+
+  <modules>
+    <module>lichkin-projects-app-common</module>
+    <module>lichkin-projects-app-entities</module>
+    <module>lichkin-projects-app-services</module>
+    <module>lichkin-projects-app-apis-common</module>
+    <module>lichkin-projects-app-admin</module>
+    <module>lichkin-projects-app-admin-ui</module>
+    <module>lichkin-projects-app-user</module>
+    <module>lichkin-projects-app-user-ui</module>
+    <module>lichkin-projects-app-employee</module>
+    <module>lichkin-projects-app-employee-ui</module>
+    <module>lichkin-projects-app-quartz</module>
+  </modules>
+
+</project>

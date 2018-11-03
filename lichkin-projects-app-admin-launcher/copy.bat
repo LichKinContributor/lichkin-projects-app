@@ -1,0 +1,4 @@
+copy /b ..\..\lichkin-projects-core\lichkin-projects-core-admin-launcher\src\main\resources\META-INF\resources\res\js\i18n\zh_CN.js+..\lichkin-projects-app-admin-ui\src\main\resources\META-INF\resources\res\js\admin\app\XxxMgmt\index\i18n\zh_CN.js zh_CN.js
+move zh_CN.js src\main\resources\META-INF\resources\res\js\i18n
+copy /b ..\..\lichkin-projects-core\lichkin-projects-core-admin-launcher\src\main\resources\META-INF\resources\res\js\icons.js+..\lichkin-projects-app-admin-ui\src\main\resources\META-INF\resources\res\js\admin\app\XxxMgmt\index\icons.js icons.js
+move icons.js src\main\resources\META-INF\resources\res\js
