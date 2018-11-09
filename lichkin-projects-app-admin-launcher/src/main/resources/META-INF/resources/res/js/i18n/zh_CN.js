@@ -68,7 +68,7 @@ $.LKExtendI18N({
       'edit' : '编辑菜单',
     },
   },
-  
+
   'up' : '向上移动',
   'down' : '向下移动',
 
@@ -154,6 +154,8 @@ $.LKExtendI18N({
         'dictName' : '字典名称',
         'dictCode' : '字典编码'
       },
+
+      'set' : '设置',
     },
 
     'comp-grid' : {
@@ -249,6 +251,9 @@ $.LKExtendI18N({
         'startDate' : '起始注册日期',
         'endDate' : '截止注册日期',
         'gender' : '性别',
+        'userCard' : '身份证号',
+        'token' : '令牌',
+        'pwd' : '密码',
       }
     }
   }
@@ -462,9 +467,9 @@ $.LKExtendI18N({
         'gender' : '性别',
       },
 
-      'add' : '入职',
-      'edit' : '修改信息',
-      'remove' : '离职',
+      'add' : '录入员工',
+      'edit' : '修改员工信息',
+      'remove' : '取消录入员工',
       'view' : '查看信息',
 
       'confirm' : {
@@ -474,4 +479,216 @@ $.LKExtendI18N({
       'deprecated employee can not be edit' : '离职员工不能修改',
     }
   }
+});
+$.LKExtendI18N({
+  'appBannerMgmt' : {
+    'title' : '客户端Banner管理',
+
+    'grid' : {
+      'title' : '客户端Banner列表',
+
+      'columns' : {
+        'title' : '标题',
+        'keywords' : '关键字',
+        'author' : '作者',
+        'brief' : '简介',
+        'content' : '内容',
+        'linkUrl' : '外链地址',
+        'orderId' : '排序号',
+        'appKey' : '客户端唯一标识',
+        'clientType' : '客户端类型',
+        'version' : '客户端版本',
+        'usingStatus' : '发布状态',
+        'newsType' : '发布类型',
+        'banner' : 'banner图片',
+      },
+
+      'VERSION' : {
+        'ALL' : '所有版本'
+      },
+      'NEWS_TYPE' : {
+        'linkUrl' : '外链形式',
+        'content' : '内容形式'
+      },
+
+      'addContent' : '按内容新增',
+      'addLinkUrl' : '按外链新增',
+      'edit' : '编辑Banner',
+      'remove' : '删除Banner',
+      'view' : '查看Banner',
+      'release' : '发布Banner',
+
+      'confirm' : {
+        'remove' : '数据删除后将不能恢复，确认删除么？',
+        'release' : '数据发布后将不能编辑，确认发布么？',
+      },
+
+      'only stand by status can be remove' : '只有待发布状态才能够删除',
+      'only stand by status can be release' : '只有待发布状态才能够发布',
+      'already removed' : '已经是删除状态',
+      'already using' : '已经是发布状态',
+
+      'newsTemplate' : '新闻模板类型',
+    }
+  }
+});
+$.LKExtendI18N({
+  'appFeedbackMgmt' : {
+    'title' : '客户端反馈信息管理',
+
+    'grid' : {
+      'title' : '客户端反馈信息列表',
+
+      'columns' : {
+        'startDate' : '起始日期',
+        'endDate' : '截止日期',
+        'insertTime' : '反馈时间',
+        'content' : '内容',
+        'img' : '图片',
+        'appKey' : '客户端唯一标识',
+        'clientType' : '客户端类型',
+        'version' : '客户端版本',
+        'loginName' : '账号名',
+        'cellphone' : '手机号码'
+      }
+    }
+  }
+});
+$.LKExtendI18N({
+  'appNewsMgmt' : {
+    'title' : '客户端新闻管理',
+
+    'grid' : {
+      'title' : '客户端新闻列表',
+
+      'columns' : {
+        'title' : '标题',
+        'keywords' : '关键字',
+        'author' : '作者',
+        'brief' : '简介',
+        'content' : '内容',
+        'linkUrl' : '外链地址',
+        'orderId' : '排序号',
+        'appKey' : '客户端唯一标识',
+        'clientType' : '客户端类型',
+        'version' : '客户端版本',
+        'usingStatus' : '发布状态',
+        'newsType' : '发布类型',
+        'categoryCode' : '新闻类目',
+      },
+
+      'VERSION' : {
+        'ALL' : '所有版本'
+      },
+      'NEWS_TYPE' : {
+        'linkUrl' : '外链形式',
+        'content' : '内容形式'
+      },
+
+      'addContent' : '按内容新增',
+      'addLinkUrl' : '按外链新增',
+      'edit' : '编辑新闻',
+      'remove' : '删除新闻',
+      'view' : '查看新闻',
+      'release' : '发布新闻',
+
+      'confirm' : {
+        'remove' : '数据删除后将不能恢复，确认删除么？',
+        'release' : '数据发布后将不能编辑，确认发布么？',
+      },
+
+      'only stand by status can be remove' : '只有待发布状态才能够删除',
+      'only stand by status can be release' : '只有待发布状态才能够发布',
+      'already removed' : '已经是删除状态',
+      'already using' : '已经是发布状态',
+
+      'newsTemplate' : '新闻模板类型',
+    }
+  }
+});
+$.LKExtendI18N({
+  'appScoreMgmt' : {
+    'title' : '客户端评分管理',
+
+    'grid' : {
+      'title' : '客户端评分列表',
+
+      'columns' : {
+        'score' : '评分',
+        'startDate' : '起始日期',
+        'endDate' : '截止日期',
+        'insertTime' : '评分时间',
+        'title' : '标题',
+        'content' : '内容',
+        'appKey' : '客户端唯一标识',
+        'clientType' : '客户端类型',
+        'version' : '客户端版本',
+        'loginName' : '账号名',
+        'cellphone' : '手机号码'
+      }
+    }
+  }
+});
+$.LKExtendI18N({
+  'appSignInLogMgmt' : {
+    'title' : '客户端签到管理',
+
+    'grid' : {
+      'title' : '客户端签到列表',
+
+      'columns' : {
+        'signDate' : '签到时间',
+        'startDate' : '起始日期',
+        'endDate' : '截止日期',
+        'appKey' : '客户端唯一标识',
+        'clientType' : '客户端类型',
+        'version' : '客户端版本',
+        'loginName' : '账号名',
+        'cellphone' : '手机号码'
+      }
+    }
+  }
+});
+$.LKExtendI18N({
+  'appVersionMgmt' : {
+    'title' : '客户端版本管理',
+
+    'grid' : {
+      'title' : '客户端版本列表',
+
+      'columns' : {
+        'appKey' : '客户端唯一标识',
+        'clientType' : '客户端类型',
+        'versionX' : '大版本号',
+        'versionY' : '中版本号',
+        'versionZ' : '小版本号',
+        'forceUpdate' : '强制更新',
+        'url' : '版本下载地址',
+        'tip' : '版本信息',
+        'version' : '客户端版本',
+        'usingStatus' : '发布状态',
+      },
+
+      'add' : '新增版本',
+      'edit' : '编辑版本',
+      'remove' : '删除版本',
+      'release' : '发布版本',
+
+      'confirm' : {
+        'remove' : '数据删除后将不能恢复，确认删除么？',
+        'release' : '数据发布后将不能删除，确认发布么？',
+      },
+
+      'only stand by status can be remove' : '只有待发布状态才能够删除',
+      'only stand by status can be release' : '只有待发布状态才能够发布',
+      'already removed' : '已经是删除状态',
+      'already using' : '已经是发布状态',
+    }
+  },
+
+  'FORCE_UPDATE' : {
+    'true' : '强制更新',
+    'false' : '提示更新',
+  },
+
 });

@@ -1,0 +1,3 @@
+$.LKExtendICON({
+  'appBannerMgmt' : 'film',
+});

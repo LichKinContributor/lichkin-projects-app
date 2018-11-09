@@ -1,0 +1,3 @@
+$.LKExtendICON({
+  'appScoreMgmt' : 'star',
+});

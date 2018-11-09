@@ -68,3 +68,21 @@ $.LKExtendICON({
 $.LKExtendICON({
   'employeeMgmt' : 'user-friends',
 });
+$.LKExtendICON({
+  'appBannerMgmt' : 'film',
+});
+$.LKExtendICON({
+  'appFeedbackMgmt' : 'comment',
+});
+$.LKExtendICON({
+  'appNewsMgmt' : 'newspaper',
+});
+$.LKExtendICON({
+  'appScoreMgmt' : 'star',
+});
+$.LKExtendICON({
+  'appSignInLogMgmt' : 'list',
+});
+$.LKExtendICON({
+  'appVersionMgmt' : 'code-branch',
+});

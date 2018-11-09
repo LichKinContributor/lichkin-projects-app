@@ -1,0 +1,3 @@
+$.LKExtendICON({
+  'appVersionMgmt' : 'code-branch',
+});

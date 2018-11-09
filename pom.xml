@@ -22,13 +22,17 @@
     <module>lichkin-projects-app-common</module>
     <module>lichkin-projects-app-entities</module>
     <module>lichkin-projects-app-services</module>
+    <module>lichkin-projects-app-apis-generator</module>
     <module>lichkin-projects-app-apis-common</module>
     <module>lichkin-projects-app-admin</module>
     <module>lichkin-projects-app-admin-ui</module>
+    <module>lichkin-projects-app-admin-launcher</module>
     <module>lichkin-projects-app-user</module>
     <module>lichkin-projects-app-user-ui</module>
+    <module>lichkin-projects-app-user-launcher</module>
     <module>lichkin-projects-app-employee</module>
     <module>lichkin-projects-app-employee-ui</module>
+    <module>lichkin-projects-app-employee-launcher</module>
     <module>lichkin-projects-app-quartz</module>
   </modules>
 
