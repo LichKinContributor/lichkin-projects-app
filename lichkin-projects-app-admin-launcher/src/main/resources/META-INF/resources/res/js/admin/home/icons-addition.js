@@ -1,3 +1,0 @@
-$.LKExtendICON({
-  'appMgmt' : 'mobile-alt',
-});
