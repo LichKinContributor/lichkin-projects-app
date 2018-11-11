@@ -23,9 +23,9 @@ public abstract class BaseAppEntity extends BaseEntity {
 	/** serialVersionUID */
 	private static final long serialVersionUID = 1L;
 
-	/** 客户端唯一标识 */
+	/** 客户端唯一标识（字典） */
 	@FieldGenerator(dictionary = true, resultColumn = true, queryCondition = true, check = true)
-	@Column(length = 128, nullable = false)
+	@Column(length = 64, nullable = false)
 	private String appKey;
 
 	/** 客户端类型（枚举） */
