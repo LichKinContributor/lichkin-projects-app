@@ -13,7 +13,6 @@ import com.lichkin.framework.beans.impl.Datas;
 import com.lichkin.framework.db.beans.Condition;
 import com.lichkin.framework.db.beans.Order;
 import com.lichkin.framework.db.beans.QuerySQL;
-import com.lichkin.framework.db.beans.SysAppBannerR;
 import com.lichkin.framework.db.beans.SysAppNewsR;
 import com.lichkin.framework.db.beans.eq;
 import com.lichkin.framework.db.beans.like;
@@ -113,7 +112,7 @@ public class S extends LKApiServiceImpl<I, Page<O>> implements LKApiService<I, P
 
 				new Condition(true,
 
-						new Condition(true, new like(SysAppBannerR.versions, LikeType.ALL, String.format("%s%s.%s.%s%s", LKFrameworkStatics.SPLITOR, datas.getVersionX(), datas.getVersionY(), datas.getVersionZ(), LKFrameworkStatics.SPLITOR))),
+						new Condition(true, new like(SysAppNewsR.versions, LikeType.ALL, String.format("%s%s.%s.%s%s", LKFrameworkStatics.SPLITOR, datas.getVersionX(), datas.getVersionY(), datas.getVersionZ(), LKFrameworkStatics.SPLITOR))),
 
 						new Condition(false, new eq(SysAppNewsR.versions, ""))
 

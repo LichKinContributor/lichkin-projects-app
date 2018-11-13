@@ -48,7 +48,9 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 	@Transactional
 	public O handle(I sin, String locale, String compId, String loginId) throws LKException {
 		// 存储日志
-		dao.persistOne(LKBeanUtils.newInstance(true, sin, SysAppApiRequestLogEntity.class));
+		SysAppApiRequestLogEntity log = LKBeanUtils.newInstance(true, sin, SysAppApiRequestLogEntity.class);
+		LKBeanUtils.copyProperties(sin.getDatas(), log);
+		dao.persistOne(log);
 
 		// 取统一请求参数
 		Datas datas = sin.getDatas();
