@@ -111,7 +111,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppBannerEntity> {
 
 	/** 文件服务器URL根路径 */
 	@Value("${com.lichkin.files.server.rootUrl}")
-	private String fileServerRootUrl;
+	private String filesServerRootUrl;
 
 
 	@Override
@@ -119,7 +119,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppBannerEntity> {
 		List<O> content = page.getContent();
 		if (CollectionUtils.isNotEmpty(content)) {
 			for (O o : page) {
-				o.setBanner(fileServerRootUrl + o.getBanner());
+				o.setBanner(filesServerRootUrl + o.getBanner());
 			}
 		}
 		return page;

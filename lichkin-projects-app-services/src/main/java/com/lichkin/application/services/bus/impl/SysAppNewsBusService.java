@@ -27,7 +27,7 @@ public class SysAppNewsBusService {
 
 	/** 文件服务器URL根路径 */
 	@Value("${com.lichkin.files.server.rootUrl}")
-	private String fileServerRootUrl;
+	private String filesServerRootUrl;
 
 
 	public String analysisContent(boolean insert, SysAppNewsEntity entity, String content) {
@@ -43,7 +43,7 @@ public class SysAppNewsBusService {
 			entity.setImageUrl9("");
 		}
 		if (StringUtils.isNotBlank(content)) {
-			entity.setContent(content.replaceAll(fileServerRootUrl, ""));
+			entity.setContent(content.replaceAll(filesServerRootUrl, ""));
 			entity.setLinkUrl("");
 			handleImages(entity, content);
 			return content;

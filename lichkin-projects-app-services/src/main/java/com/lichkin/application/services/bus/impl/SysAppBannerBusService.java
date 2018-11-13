@@ -25,7 +25,7 @@ public class SysAppBannerBusService {
 	public String analysisContent(boolean insert, SysAppBannerEntity entity, String content) {
 		if (StringUtils.isNotBlank(content)) {
 			entity.setLinkUrl("");
-			return content.replaceAll(fileServerRootUrl, "");
+			return content.replaceAll(filesServerRootUrl, "");
 		} else {
 			return null;
 		}
@@ -34,11 +34,11 @@ public class SysAppBannerBusService {
 
 	/** 文件服务器保存根路径 */
 	@Value("${com.lichkin.files.save.path:/opt/files}")
-	private String fileSaveRootPath;
+	private String filesSaveRootPath;
 
 	/** 文件服务器URL根路径 */
 	@Value("${com.lichkin.files.server.rootUrl}")
-	private String fileServerRootUrl;
+	private String filesServerRootUrl;
 
 	/** 内容中的图片保存子路径 */
 	private static final String BANNER_IMAGES_PATH = "/images/banner";
@@ -46,11 +46,11 @@ public class SysAppBannerBusService {
 
 	public String analysisBanner(String banner) {
 		if (banner.startsWith("http")) {
-			return banner.replace(fileServerRootUrl, "");
+			return banner.replace(filesServerRootUrl, "");
 		}
-		String filePath = LKFileUtils.createFilePath(fileSaveRootPath + BANNER_IMAGES_PATH, ".jpeg");
+		String filePath = LKFileUtils.createFilePath(filesSaveRootPath + BANNER_IMAGES_PATH, ".jpeg");
 		new Thread(() -> LKImageUtils.base64ToImage(banner, filePath)).start();
-		return filePath.replace(fileSaveRootPath, "");
+		return filePath.replace(filesSaveRootPath, "");
 	}
 
 }
