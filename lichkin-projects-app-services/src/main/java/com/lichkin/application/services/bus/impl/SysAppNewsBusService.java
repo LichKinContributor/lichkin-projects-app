@@ -29,6 +29,10 @@ public class SysAppNewsBusService {
 	@Value("${com.lichkin.files.server.rootUrl}")
 	private String filesServerRootUrl;
 
+	/** 文件服务器保存根路径 */
+	@Value("${com.lichkin.files.save.path:/opt/files}")
+	private String filesSaveRootPath;
+
 
 	public String analysisContent(boolean insert, SysAppNewsEntity entity, String content) {
 		if (!insert) {
@@ -43,7 +47,8 @@ public class SysAppNewsBusService {
 			entity.setImageUrl9("");
 		}
 		if (StringUtils.isNotBlank(content)) {
-			entity.setContent(content.replaceAll(filesServerRootUrl, ""));
+			content = content.replaceAll(filesServerRootUrl, "");
+			entity.setContent(content);
 			entity.setLinkUrl("");
 			handleImages(entity, content);
 			return content;
@@ -103,7 +108,7 @@ public class SysAppNewsBusService {
 	 */
 	private String handleThumb(String src) {
 		String thumb = src.substring(0, src.indexOf(".")) + "_thumb" + src.substring(src.indexOf("."));
-		new Thread(() -> LKImageUtils.zoomImage(src, thumb, 128, 128)).start();
+		new Thread(() -> LKImageUtils.zoomImage(filesSaveRootPath + src, filesSaveRootPath + thumb, 256, 256)).start();
 		return thumb;
 	}
 
