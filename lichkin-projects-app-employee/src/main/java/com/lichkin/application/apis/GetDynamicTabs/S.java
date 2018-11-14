@@ -14,7 +14,7 @@ public class S extends LKApiBusGetListService<I, O, SysCompEntity> {
 
 	@Override
 	protected void initSQL(I sin, String locale, String compId, String loginId, QuerySQL sql) {
-		sql.select(SysCompR.id, "tabId");
+		sql.select(SysCompR.token, "tabId");
 		sql.select(SysCompR.compName, "tabName");
 		sql.select(SysCompR.photo, "tabIcon");
 
