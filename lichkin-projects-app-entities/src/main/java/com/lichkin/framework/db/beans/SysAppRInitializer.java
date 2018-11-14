@@ -37,9 +37,10 @@ class SysAppRInitializer implements LKRInitializer {
 		LKDBResource.addColumn("60001006", "SysAppVersionEntity", "versionY");
 		LKDBResource.addColumn("60001007", "SysAppVersionEntity", "versionZ");
 		LKDBResource.addColumn("60001008", "SysAppVersionEntity", "forceUpdate");
-		LKDBResource.addColumn("60001009", "SysAppVersionEntity", "tip");
-		LKDBResource.addColumn("60001010", "SysAppVersionEntity", "url");
-		LKDBResource.addColumn("60001011", "SysAppVersionEntity", "publishTime");
+		LKDBResource.addColumn("60001009", "SysAppVersionEntity", "hangUp");
+		LKDBResource.addColumn("60001010", "SysAppVersionEntity", "tip");
+		LKDBResource.addColumn("60001011", "SysAppVersionEntity", "url");
+		LKDBResource.addColumn("60001012", "SysAppVersionEntity", "publishTime");
 		LKDBResource.addTable("com.lichkin.springframework.entities.impl.SysAppBannerEntity", "T_SYS_APP_BANNER", "SysAppBannerEntity");
 		LKDBResource.addColumn("60002000", "SysAppBannerEntity", "id");
 		LKDBResource.addColumn("60002001", "SysAppBannerEntity", "usingStatus");

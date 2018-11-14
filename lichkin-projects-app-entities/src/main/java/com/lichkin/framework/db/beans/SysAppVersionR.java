@@ -24,10 +24,12 @@ public interface SysAppVersionR {
 
 	public static final int forceUpdate = 0x60001008;
 
-	public static final int tip = 0x60001009;
+	public static final int hangUp = 0x60001009;
 
-	public static final int url = 0x60001010;
+	public static final int tip = 0x60001010;
 
-	public static final int publishTime = 0x60001011;
+	public static final int url = 0x60001011;
+
+	public static final int publishTime = 0x60001012;
 
 }

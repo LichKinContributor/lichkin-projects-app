@@ -39,6 +39,11 @@ public class SysAppVersionEntity extends BaseAppEntity {
 	@Column(nullable = false)
 	private Boolean forceUpdate;
 
+	/** 是否挂起（true:挂起;false:不挂起.） */
+	@FieldGenerator(resultColumn = true)
+	@Column(nullable = false)
+	private Boolean hangUp;
+
 	/** 版本信息 */
 	@FieldGenerator(resultColumn = true)
 	@Column(length = 64, nullable = false)
