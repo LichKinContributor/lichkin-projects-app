@@ -37,6 +37,10 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 
 		app_no_version_found(40000),
 
+		version_inexist(49998),
+
+		app_version_temporarily_stop_using(49999),
+
 		;
 
 		private final Integer code;
@@ -56,11 +60,16 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 		Datas datas = sin.getDatas();
 
 		// 查询发送当前请求的版本信息
-		Boolean forceUpdate = getCurrentAppVersionForceUpdate(datas);
+		SysAppVersionEntity entity = getCurrentAppVersion(datas);
 
 		// 验证当前版本信息
-		if (forceUpdate == null) {
-			throw new LKException(ErrorCodes.app_no_version_found);
+		if (entity == null) {
+			throw new LKException(ErrorCodes.version_inexist);
+		}
+
+		// 验证是否挂起
+		if (Boolean.TRUE.equals(entity.getHangUp())) {
+			throw new LKException(ErrorCodes.app_version_temporarily_stop_using);
 		}
 
 		// 查询所有版本信息
@@ -73,7 +82,7 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 
 		// 获取最新版本信息
 		O out = list.get(0);
-		out.setForceUpdate(forceUpdate);// 当前版本是否需要强制更新
+		out.setForceUpdate(entity.getForceUpdate());// 当前版本是否需要强制更新
 		if (StringUtils.isNotBlank(out.getTip())) {
 			String[] tips = out.getTip().split(LKFrameworkStatics.SPLITOR_FIELDS);
 			if (locale.equals(Locale.SIMPLIFIED_CHINESE.toString())) {
@@ -87,14 +96,12 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 
 
 	/**
-	 * 获取当前版本是否需要强制更新
+	 * 获取当前版本
 	 * @param datas 入参
-	 * @return 当前版本是否需要强制更新
+	 * @return 当前版本
 	 */
-	private Boolean getCurrentAppVersionForceUpdate(Datas datas) {
-		QuerySQL sql = new QuerySQL(SysAppVersionEntity.class);
-
-		sql.select(SysAppVersionR.forceUpdate);
+	private SysAppVersionEntity getCurrentAppVersion(Datas datas) {
+		QuerySQL sql = new QuerySQL(false, SysAppVersionEntity.class);
 
 		sql.eq(SysAppVersionR.usingStatus, LKUsingStatusEnum.USING);
 		sql.eq(SysAppVersionR.appKey, datas.getAppKey());
@@ -103,7 +110,7 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 		sql.eq(SysAppVersionR.versionY, datas.getVersionY());
 		sql.eq(SysAppVersionR.versionZ, datas.getVersionZ());
 
-		return dao.getBoolean(sql);
+		return dao.getOne(sql, SysAppVersionEntity.class);
 	}
 
 
