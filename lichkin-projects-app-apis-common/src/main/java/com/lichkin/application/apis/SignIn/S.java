@@ -8,7 +8,6 @@ import com.lichkin.framework.db.beans.QuerySQL;
 import com.lichkin.framework.db.beans.SysAppSignInLogR;
 import com.lichkin.framework.defines.enums.LKCodeEnum;
 import com.lichkin.framework.defines.enums.impl.LKDateTimeTypeEnum;
-import com.lichkin.framework.utils.LKBeanUtils;
 import com.lichkin.framework.utils.LKDateTimeUtils;
 import com.lichkin.springframework.entities.impl.SysAppSignInLogEntity;
 import com.lichkin.springframework.services.LKApiBusInsertService;
@@ -57,7 +56,6 @@ public class S extends LKApiBusInsertService<I, SysAppSignInLogEntity> {
 
 	@Override
 	protected void beforeSaveMain(I sin, String locale, String compId, String loginId, SysAppSignInLogEntity entity) {
-		LKBeanUtils.copyProperties(sin.getDatas(), entity);
 		entity.setAppKey(sin.getDatas().getAppKey());
 		entity.setSignDate(LKDateTimeUtils.now(LKDateTimeTypeEnum.DATE_ONLY));
 	}
