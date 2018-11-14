@@ -12,6 +12,7 @@ public class S extends LKApiBusInsertWithoutCheckerService<I, SysAppFeedbackEnti
 	@Override
 	protected void beforeSaveMain(I sin, String locale, String compId, String loginId, SysAppFeedbackEntity entity) {
 		LKBeanUtils.copyProperties(sin.getDatas(), entity);
+		entity.setAppKey(sin.getDatas().getAppKey());
 	}
 
 }

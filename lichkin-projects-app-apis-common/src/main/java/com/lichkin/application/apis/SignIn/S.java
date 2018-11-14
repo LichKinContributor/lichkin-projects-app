@@ -58,6 +58,7 @@ public class S extends LKApiBusInsertService<I, SysAppSignInLogEntity> {
 	@Override
 	protected void beforeSaveMain(I sin, String locale, String compId, String loginId, SysAppSignInLogEntity entity) {
 		LKBeanUtils.copyProperties(sin.getDatas(), entity);
+		entity.setAppKey(sin.getDatas().getAppKey());
 		entity.setSignDate(LKDateTimeUtils.now(LKDateTimeTypeEnum.DATE_ONLY));
 	}
 
