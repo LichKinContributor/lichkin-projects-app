@@ -36,7 +36,7 @@ public class S extends LKApiServiceImpl<I, List<O>> implements LKApiService<I, L
 
 	@Override
 	public List<O> handle(I sin, String locale, String compId, String loginId) throws LKException {
-		return LKListUtils.convert(getListEntity(sin), source -> new O(filesServerRootUrl + source.getBanner(), apisServerRootUrl + AppStatics.PAGE_URL_APP_BANNER + source.getId(), source.getTitle()));
+		return LKListUtils.convert(getListEntity(sin), source -> new O(filesServerRootUrl + source.getBanner(), apisServerRootUrl + AppStatics.PAGE_URL_APP_BANNER + LKFrameworkStatics.WEB_MAPPING_PAGES + "?id=" + source.getId(), source.getTitle()));
 	}
 
 

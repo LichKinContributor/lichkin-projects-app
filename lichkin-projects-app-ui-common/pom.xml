@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>jar</packaging>
 
-  <artifactId>lichkin-projects-app-admin-ui</artifactId>
+  <artifactId>lichkin-projects-app-ui-common</artifactId>
 
   <parent>
     <groupId>com.lichkin.projects</groupId>
@@ -14,11 +14,15 @@
   </parent>
 
   <dependencies>
-    <!-- lichkin projects app -->
+    <!-- lichkin starter -->
     <dependency>
-      <groupId>com.lichkin.projects</groupId>
-      <artifactId>lichkin-projects-app-ui-common</artifactId>
-      <version>${com.lichkin.projects.app.version}</version>
+      <groupId>com.lichkin.springframework.boot</groupId>
+      <artifactId>lichkin-spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- lichkin-ui -->
+    <dependency>
+      <groupId>com.lichkin.ui</groupId>
+      <artifactId>lichkin-ui</artifactId>
     </dependency>
   </dependencies>
 

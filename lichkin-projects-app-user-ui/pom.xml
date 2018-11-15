@@ -14,15 +14,11 @@
   </parent>
 
   <dependencies>
-    <!-- lichkin starter -->
+    <!-- lichkin projects app -->
     <dependency>
-      <groupId>com.lichkin.springframework.boot</groupId>
-      <artifactId>lichkin-spring-boot-starter-web</artifactId>
-    </dependency>
-    <!-- lichkin-ui -->
-    <dependency>
-      <groupId>com.lichkin.ui</groupId>
-      <artifactId>lichkin-ui</artifactId>
+      <groupId>com.lichkin.projects</groupId>
+      <artifactId>lichkin-projects-app-ui-common</artifactId>
+      <version>${com.lichkin.projects.app.version}</version>
     </dependency>
   </dependencies>
 

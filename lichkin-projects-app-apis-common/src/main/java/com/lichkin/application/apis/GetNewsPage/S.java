@@ -40,7 +40,7 @@ public class S extends LKApiServiceImpl<I, Page<O>> implements LKApiService<I, P
 	@Override
 	public Page<O> handle(I sin, String locale, String compId, String loginId) throws LKException {
 		return LKPageUtils.convert(getPageEntity(sin), source -> {
-			O target = new O(apisServerRootUrl + AppStatics.PAGE_URL_APP_NEWS + source.getId(), source.getBrief(), source.getTitle());
+			O target = new O(apisServerRootUrl + AppStatics.PAGE_URL_APP_NEWS + LKFrameworkStatics.WEB_MAPPING_PAGES + "?id=" + source.getId(), source.getTitle(), source.getBrief());
 
 			List<String> imageList = new ArrayList<>();
 			target.setImageUrls(imageList);
