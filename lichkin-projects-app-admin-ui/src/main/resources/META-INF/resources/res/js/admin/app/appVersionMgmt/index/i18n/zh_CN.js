@@ -12,6 +12,7 @@ $.LKExtendI18N({
         'versionY' : '中版本号',
         'versionZ' : '小版本号',
         'forceUpdate' : '强制更新',
+        'hangUp' : '挂起状态',
         'url' : '版本下载地址',
         'tip' : '版本信息',
         'version' : '客户端版本',
@@ -38,6 +39,11 @@ $.LKExtendI18N({
   'FORCE_UPDATE' : {
     'true' : '强制更新',
     'false' : '提示更新',
+  },
+
+  'HANG_UP' : {
+    'true' : '挂起',
+    'false' : '使用中',
   },
 
 });

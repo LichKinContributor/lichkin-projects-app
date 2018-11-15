@@ -28,6 +28,8 @@ public class O {
 
 	private Boolean forceUpdate;
 
+	private Boolean hangUp;
+
 	private String tip;
 
 	private String url;

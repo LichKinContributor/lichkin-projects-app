@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import com.lichkin.framework.defines.annotations.ClassGenerator;
+import com.lichkin.framework.defines.annotations.DefaultBooleanValue;
 import com.lichkin.framework.defines.annotations.FieldGenerator;
 import com.lichkin.framework.defines.annotations.InsertCheckType;
 import com.lichkin.framework.defines.annotations.InsertType;
@@ -40,7 +41,8 @@ public class SysAppVersionEntity extends BaseAppEntity {
 	private Boolean forceUpdate;
 
 	/** 是否挂起（true:挂起;false:不挂起.） */
-	@FieldGenerator(resultColumn = true)
+	@DefaultBooleanValue(value = false)
+	@FieldGenerator(resultColumn = true, insertType = InsertType.DEFAULT_DEFAULT)
 	@Column(nullable = false)
 	private Boolean hangUp;
 

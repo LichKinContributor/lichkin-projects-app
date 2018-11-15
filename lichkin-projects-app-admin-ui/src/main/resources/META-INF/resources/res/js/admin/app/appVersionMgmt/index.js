@@ -97,6 +97,20 @@ var appVersionMgmtEditForm = {
           validator : true
         }
       }, {
+        plugin : 'droplist',
+        options : {
+          name : 'hangUp',
+          data : [
+              {
+                text : $.LKGetI18N('HANG_UP', 'true'),
+                value : 'true'
+              }, {
+                text : $.LKGetI18N('HANG_UP', 'false'),
+                value : 'false'
+              }
+          ],
+        }
+      }, {
         plugin : 'textbox',
         options : {
           name : 'url',
@@ -141,6 +155,12 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
         width : 60,
         formatter : function(rowData) {
           return $.LKGetI18N('FORCE_UPDATE', rowData.forceUpdate);
+        }
+      }, {
+        text : 'hangUp',
+        width : 60,
+        formatter : function(rowData) {
+          return $.LKGetI18N('HANG_UP', rowData.hangUp);
         }
       }, {
         text : 'usingStatus',

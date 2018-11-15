@@ -36,6 +36,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppVersionEntity> {
 		sql.select(SysAppVersionR.versionY);
 		sql.select(SysAppVersionR.versionZ);
 		sql.select(SysAppVersionR.forceUpdate);
+		sql.select(SysAppVersionR.hangUp);
 		sql.select(SysAppVersionR.tip);
 		sql.select(SysAppVersionR.url);
 		sql.select(SysAppVersionR.publishTime);

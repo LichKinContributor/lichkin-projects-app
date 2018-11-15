@@ -21,6 +21,8 @@ public class I extends LKRequestIDBean {
 
 	private Boolean forceUpdate;
 
+	private Boolean hangUp;
+
 	private String tip;
 
 	private String url;
