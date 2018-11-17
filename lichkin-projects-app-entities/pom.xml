@@ -14,22 +14,17 @@
   </parent>
 
   <dependencies>
-    <!-- lichkin starter -->
+    <!-- lichkin projects core -->
     <dependency>
-      <groupId>com.lichkin.springframework.boot</groupId>
-      <artifactId>lichkin-spring-boot-starter-jpa</artifactId>
+      <groupId>com.lichkin.projects</groupId>
+      <artifactId>lichkin-projects-core-entities</artifactId>
+      <version>${com.lichkin.projects.core.version}</version>
     </dependency>
     <!-- lichkin projects app -->
     <dependency>
       <groupId>com.lichkin.projects</groupId>
       <artifactId>lichkin-projects-app-common</artifactId>
       <version>${com.lichkin.projects.app.version}</version>
-    </dependency>
-    <!-- lichkin projects core -->
-    <dependency>
-      <groupId>com.lichkin.projects</groupId>
-      <artifactId>lichkin-projects-core-entities</artifactId>
-      <version>${com.lichkin.projects.core.version}</version>
     </dependency>
   </dependencies>
 

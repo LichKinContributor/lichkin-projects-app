@@ -19,17 +19,29 @@
   </properties>
 
   <modules>
+    <!-- 通用模块（子项目需依赖） -->
     <module>lichkin-projects-app-common</module>
     <module>lichkin-projects-app-entities</module>
     <module>lichkin-projects-app-services</module>
+
+    <!-- 平台间通用模块（子项目不依赖） -->
     <module>lichkin-projects-app-apis-generator</module>
     <module>lichkin-projects-app-apis-common</module>
+    <module>lichkin-projects-app-ui-common</module>
+
+    <!-- 管理平台模块（子项目需依赖starter） -->
     <module>lichkin-projects-app-admin</module>
     <module>lichkin-projects-app-admin-ui</module>
+
+    <!-- 用户平台模块（子项目需依赖starter） -->
     <module>lichkin-projects-app-user</module>
     <module>lichkin-projects-app-user-ui</module>
+
+    <!-- 员工平台模块（子项目需依赖starter） -->
     <module>lichkin-projects-app-employee</module>
     <module>lichkin-projects-app-employee-ui</module>
+
+    <!-- 定时任务模块 -->
     <module>lichkin-projects-app-quartz</module>
   </modules>
 
