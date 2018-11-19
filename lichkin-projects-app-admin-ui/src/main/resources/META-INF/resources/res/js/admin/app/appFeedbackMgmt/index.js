@@ -39,7 +39,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
         text : 'insertTime',
         width : 160,
         formatter : function(rowData) {
-          return formatterTime(rowData.insertTime);
+          return showStandardTime(rowData.insertTime);
         }
       }, {
         text : 'content',
