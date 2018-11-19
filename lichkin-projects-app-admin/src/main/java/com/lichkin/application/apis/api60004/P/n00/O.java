@@ -31,6 +31,8 @@ public class O {
 
 	private String title;
 
+	private String content;
+
 	private Byte score;
 
 	/** 登录名 */

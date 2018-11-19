@@ -9,7 +9,6 @@ import com.lichkin.framework.db.beans.Condition;
 import com.lichkin.framework.db.beans.Order;
 import com.lichkin.framework.db.beans.QuerySQL;
 import com.lichkin.framework.db.beans.SysAppApiRequestLogR;
-import com.lichkin.framework.db.beans.SysAppVersionR;
 import com.lichkin.framework.db.beans.SysUserLoginR;
 import com.lichkin.framework.db.enums.LikeType;
 import com.lichkin.framework.defines.LKFrameworkStatics;
@@ -70,7 +69,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppApiRequestLogEntity> {
 		// 筛选条件（业务项）
 		String appKey = sin.getAppKey();
 		if (StringUtils.isNotBlank(appKey)) {
-			sql.eq(SysAppVersionR.appKey, appKey);
+			sql.eq(SysAppApiRequestLogR.appKey, appKey);
 		}
 
 		LKClientTypeEnum clientType = sin.getClientType();

@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.lichkin.application.utils.LKDictUtils;
 import com.lichkin.application.utils.LKDictUtils4App;
+import com.lichkin.framework.db.beans.Condition;
 import com.lichkin.framework.db.beans.Order;
 import com.lichkin.framework.db.beans.QuerySQL;
-import com.lichkin.framework.db.beans.SysAppNewsR;
 import com.lichkin.framework.db.beans.SysAppScoreR;
 import com.lichkin.framework.db.beans.SysUserLoginR;
 import com.lichkin.framework.defines.LKFrameworkStatics;
@@ -17,6 +17,7 @@ import com.lichkin.framework.defines.enums.impl.LKDateTimeTypeEnum;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 import com.lichkin.framework.utils.LKDateTimeUtils;
 import com.lichkin.springframework.entities.impl.SysAppScoreEntity;
+import com.lichkin.springframework.entities.impl.SysUserLoginEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @Service("SysAppScoreP00Service")
@@ -41,9 +42,11 @@ public class S extends LKApiBusGetPageService<I, O, SysAppScoreEntity> {
 		sql.select(SysAppScoreR.versionZ);
 		sql.select(SysAppScoreR.locale);
 		sql.select(SysAppScoreR.title);
+		sql.select(SysAppScoreR.content);
 		sql.select(SysAppScoreR.score);
 
 		// 关联表
+		sql.leftJoin(SysUserLoginEntity.class, new Condition(SysUserLoginR.id, SysAppScoreR.loginId));
 		sql.select(SysUserLoginR.loginName);
 		sql.select(SysUserLoginR.cellphone);
 
@@ -69,7 +72,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppScoreEntity> {
 		// 筛选条件（业务项）
 		String appKey = sin.getAppKey();
 		if (StringUtils.isNotBlank(appKey)) {
-			sql.eq(SysAppNewsR.appKey, appKey);
+			sql.eq(SysAppScoreR.appKey, appKey);
 		}
 
 		LKClientTypeEnum clientType = sin.getClientType();

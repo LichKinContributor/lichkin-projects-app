@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.lichkin.application.utils.LKDictUtils;
 import com.lichkin.application.utils.LKDictUtils4App;
+import com.lichkin.framework.db.beans.Condition;
 import com.lichkin.framework.db.beans.Order;
 import com.lichkin.framework.db.beans.QuerySQL;
 import com.lichkin.framework.db.beans.SysAppFeedbackR;
-import com.lichkin.framework.db.beans.SysAppNewsR;
 import com.lichkin.framework.db.beans.SysUserLoginR;
 import com.lichkin.framework.defines.LKFrameworkStatics;
 import com.lichkin.framework.defines.enums.impl.LKClientTypeEnum;
@@ -17,6 +17,7 @@ import com.lichkin.framework.defines.enums.impl.LKDateTimeTypeEnum;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 import com.lichkin.framework.utils.LKDateTimeUtils;
 import com.lichkin.springframework.entities.impl.SysAppFeedbackEntity;
+import com.lichkin.springframework.entities.impl.SysUserLoginEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @Service("SysAppFeedbackP00Service")
@@ -44,6 +45,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppFeedbackEntity> {
 		sql.select(SysAppFeedbackR.img);
 
 		// 关联表
+		sql.leftJoin(SysUserLoginEntity.class, new Condition(SysUserLoginR.id, SysAppFeedbackR.loginId));
 		sql.select(SysUserLoginR.loginName);
 		sql.select(SysUserLoginR.cellphone);
 
@@ -69,7 +71,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppFeedbackEntity> {
 		// 筛选条件（业务项）
 		String appKey = sin.getAppKey();
 		if (StringUtils.isNotBlank(appKey)) {
-			sql.eq(SysAppNewsR.appKey, appKey);
+			sql.eq(SysAppFeedbackR.appKey, appKey);
 		}
 
 		LKClientTypeEnum clientType = sin.getClientType();
