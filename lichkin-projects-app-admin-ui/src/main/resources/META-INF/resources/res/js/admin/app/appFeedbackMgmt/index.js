@@ -82,7 +82,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
                   options : {
                     key : 'appFeedbackMgmt.grid.columns.img',
                     name : 'img',
-                    value : selectedDatas[0].img,
+                    value : selectedDatas.img,
                     compressWidth : 256,
                     compressHeight : 256,
                     cols : 2,
