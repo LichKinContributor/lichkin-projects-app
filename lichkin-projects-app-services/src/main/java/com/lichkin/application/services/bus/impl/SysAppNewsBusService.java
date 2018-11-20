@@ -108,7 +108,7 @@ public class SysAppNewsBusService {
 	 */
 	private String handleThumb(String src) {
 		String thumb = src.substring(0, src.indexOf(".")) + "_thumb" + src.substring(src.indexOf("."));
-		new Thread(() -> LKImageUtils.zoomImage(filesSaveRootPath + src, filesSaveRootPath + thumb, 256, 256)).start();
+		new Thread(() -> LKImageUtils.zoomImage(filesSaveRootPath + src, filesSaveRootPath + thumb, 512, 512)).start();
 		return thumb;
 	}
 
