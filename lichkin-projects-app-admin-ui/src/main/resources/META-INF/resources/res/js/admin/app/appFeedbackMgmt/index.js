@@ -56,8 +56,8 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
       click : function($button, $datagrid, $selecteds, selectedDatas, value) {
         LK.UI.openDialog($.extend({}, {
           size : {
-            cols : 2,
-            rows : 4
+            cols : 3,
+            rows : 12
           }
         }, {
           title : 'view',
@@ -83,10 +83,10 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
                     key : 'appFeedbackMgmt.grid.columns.img',
                     name : 'img',
                     value : selectedDatas.img,
-                    compressWidth : 256,
-                    compressHeight : 256,
-                    cols : 2,
-                    rows : 4,
+                    compressWidth : 512,
+                    compressHeight : 512,
+                    cols : 3,
+                    rows : 12,
                     readonly : true
                   }
                 }
