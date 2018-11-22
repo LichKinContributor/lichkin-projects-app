@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppBannerEntity;
 import com.lichkin.springframework.services.LKApiBusDeleteService;
 
 @RestController("SysAppBannerD00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppBanner/D")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppBanner/D")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusDeleteController<I, SysAppBannerEntity> {
 

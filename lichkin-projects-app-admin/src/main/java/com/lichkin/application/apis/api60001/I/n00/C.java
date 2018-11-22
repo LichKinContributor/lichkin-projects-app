@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppVersionEntity;
 import com.lichkin.springframework.services.LKApiBusInsertService;
 
 @RestController("SysAppVersionI00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppVersion/I")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppVersion/I")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusInsertController<I, SysAppVersionEntity> {
 

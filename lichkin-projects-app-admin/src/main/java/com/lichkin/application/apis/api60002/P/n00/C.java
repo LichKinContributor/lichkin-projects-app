@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppBannerEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @RestController("SysAppBannerP00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppBanner/P")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppBanner/P")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusGetPageController<I, O, SysAppBannerEntity> {
 

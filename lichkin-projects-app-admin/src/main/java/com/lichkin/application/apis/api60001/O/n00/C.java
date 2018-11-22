@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppVersionEntity;
 import com.lichkin.springframework.services.LKApiBusGetOneService;
 
 @RestController("SysAppVersionO00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppVersion/O")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppVersion/O")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusGetOneController<I, O, SysAppVersionEntity> {
 

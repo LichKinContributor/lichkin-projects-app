@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppVersionEntity;
 import com.lichkin.springframework.services.LKApiBusUpdateUsingStatusService;
 
 @RestController("SysAppVersionUS00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppVersion/US")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppVersion/US")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusUpdateUsingStatusController<I, SysAppVersionEntity> {
 

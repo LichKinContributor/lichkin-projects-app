@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppScoreEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @RestController("SysAppScoreP00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppScore/P")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppScore/P")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusGetPageController<I, O, SysAppScoreEntity> {
 

@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppVersionEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @RestController("SysAppVersionP00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB_ADMIN + "/SysAppVersion/P")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppVersion/P")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusGetPageController<I, O, SysAppVersionEntity> {
 
