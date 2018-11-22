@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppSignInLogEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @RestController("SysAppSignInLogP00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppSignInLog/P")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API + "/SysAppSignInLog/P")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusGetPageController<I, O, SysAppSignInLogEntity> {
 

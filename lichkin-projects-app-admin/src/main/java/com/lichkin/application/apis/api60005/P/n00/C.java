@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppFeedbackEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
 @RestController("SysAppFeedbackP00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppFeedback/P")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API + "/SysAppFeedback/P")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusGetPageController<I, O, SysAppFeedbackEntity> {
 

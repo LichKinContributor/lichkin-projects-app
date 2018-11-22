@@ -12,7 +12,7 @@ import com.lichkin.springframework.controllers.LKApiYYController;
 import com.lichkin.springframework.services.LKApiService;
 
 @RestController(Statics.CONTROLLER_NAME + "WEB")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + Statics.SUB_URL)
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API + Statics.SUB_URL)
 @LKApiType(apiType = ApiType.OPEN)
 public class CWeb extends LKApiYYController<I, O, I, O> {
 

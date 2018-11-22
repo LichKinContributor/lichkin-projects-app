@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppNewsEntity;
 import com.lichkin.springframework.services.LKApiBusUpdateWithoutCheckerService;
 
 @RestController("SysAppNewsU00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppNews/U")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API + "/SysAppNews/U")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusUpdateController<I, SysAppNewsEntity> {
 

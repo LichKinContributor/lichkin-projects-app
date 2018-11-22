@@ -12,7 +12,7 @@ import com.lichkin.springframework.entities.impl.SysAppVersionEntity;
 import com.lichkin.springframework.services.LKApiBusDeleteService;
 
 @RestController("SysAppVersionD00Controller")
-@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API_WEB + "/SysAppVersion/D")
+@RequestMapping(value = LKFrameworkStatics.WEB_MAPPING_API + "/SysAppVersion/D")
 @LKApiType(apiType = ApiType.COMPANY_BUSINESS)
 public class C extends LKApiBusDeleteController<I, SysAppVersionEntity> {
 
