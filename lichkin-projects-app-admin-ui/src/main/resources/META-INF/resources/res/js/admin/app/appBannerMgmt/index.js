@@ -329,7 +329,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
                 click : function($button, $dialog, $contentBar) {
                   var $form = $contentBar.find('form');
                   if ($form.LKValidate()) {
-                    LK.web.confirm(i18nKey + 'confirm.release', function() {
+                    LK.confirm(i18nKey + 'confirm.release', function() {
                       LK.ajax({
                         url : '/SysAppBanner/US',
                         data : {
