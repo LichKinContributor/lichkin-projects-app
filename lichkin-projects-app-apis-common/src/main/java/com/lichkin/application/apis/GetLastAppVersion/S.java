@@ -20,6 +20,7 @@ import com.lichkin.framework.defines.enums.LKCodeEnum;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 import com.lichkin.framework.defines.exceptions.LKException;
 import com.lichkin.framework.utils.LKBeanUtils;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppApiRequestLogEntity;
 import com.lichkin.springframework.entities.impl.SysAppVersionEntity;
 import com.lichkin.springframework.services.LKApiService;
@@ -50,10 +51,12 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 
 	@Override
 	@Transactional
-	public O handle(I sin, String locale, String compId, String loginId) throws LKException {
+	public O handle(I sin, ApiKeyValues<I> params) throws LKException {
 		// 存储日志
-		SysAppApiRequestLogEntity log = LKBeanUtils.newInstance(true, sin, SysAppApiRequestLogEntity.class);
-		LKBeanUtils.copyProperties(sin.getDatas(), log);
+		I originalObject = params.getOriginalObject();
+		SysAppApiRequestLogEntity log = LKBeanUtils.newInstance(true, originalObject.getDatas(), SysAppApiRequestLogEntity.class);
+		LKBeanUtils.copyProperties(originalObject, log, "id");
+		log.setLocale(params.getLocale());
 		dao.persistOne(log);
 
 		// 取统一请求参数
@@ -85,6 +88,7 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 		out.setForceUpdate(entity.getForceUpdate());// 当前版本是否需要强制更新
 		if (StringUtils.isNotBlank(out.getTip())) {
 			String[] tips = out.getTip().split(LKFrameworkStatics.SPLITOR_FIELDS);
+			String locale = params.getLocale();
 			if (locale.equals(Locale.SIMPLIFIED_CHINESE.toString())) {
 				out.setTip(tips[1].split(LKFrameworkStatics.SPLITOR)[1]);
 			} else if (locale.equals(Locale.ENGLISH.toString())) {

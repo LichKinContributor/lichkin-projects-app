@@ -25,7 +25,6 @@
     <module>lichkin-projects-app-services</module>
 
     <!-- 平台间通用模块（子项目不依赖） -->
-    <module>lichkin-projects-app-apis-generator</module>
     <module>lichkin-projects-app-apis-common</module>
     <module>lichkin-projects-app-ui-common</module>
 

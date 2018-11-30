@@ -79,7 +79,7 @@ var appVersionMgmtAddForm = {
 };
 
 var appVersionMgmtEditForm = {
-  url : '/SysAppVersion/O',
+  url : '/ROOT_GetAppVersion',
   plugins : [
       {
         plugin : 'droplist',
@@ -137,8 +137,8 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
 } : {}), {
   i18nKey : 'appVersionMgmt',
   $appendTo : true,
-  cols : 5,
-  url : '/SysAppVersion/P',
+  cols : 6,
+  url : '/ROOT_GetAppVersionPage',
   columns : [
       {
         text : 'clientType',
@@ -180,7 +180,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
   ],
   pageable : true,
   toolsAdd : {
-    saveUrl : '/SysAppVersion/I',
+    saveUrl : '/ROOT_AddAppVersion',
     dialog : {
       size : {
         cols : 3,
@@ -190,7 +190,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
     form : appVersionMgmtAddForm
   },
   toolsEdit : {
-    saveUrl : '/SysAppVersion/U',
+    saveUrl : '/ROOT_UpdateAppVersion',
     dialog : {
       size : {
         cols : 2,
@@ -200,7 +200,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
     form : appVersionMgmtEditForm
   },
   toolsRemove : {
-    saveUrl : '/SysAppVersion/D',
+    saveUrl : '/ROOT_DeleteAppVersion',
     allowUsingStatusArr : [
       {
         usingStatus : 'STAND_BY',
@@ -217,7 +217,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
   toolsSubmit : {
     icon : 'release',
     text : 'release',
-    saveUrl : '/SysAppVersion/US',
+    saveUrl : '/ROOT_PublishAppVersion',
     allowUsingStatusArr : [
       {
         usingStatus : 'STAND_BY',
@@ -239,7 +239,6 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
           param : {
             categoryCode : 'APP_KEY'
           },
-          validator : true
         }
       }, {
         plugin : 'droplist',

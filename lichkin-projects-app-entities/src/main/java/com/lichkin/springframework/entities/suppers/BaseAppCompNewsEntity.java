@@ -8,6 +8,8 @@ import com.lichkin.framework.defines.annotations.DefaultByteValue;
 import com.lichkin.framework.defines.annotations.DefaultStringValue;
 import com.lichkin.framework.defines.annotations.FieldGenerator;
 import com.lichkin.framework.defines.annotations.InsertType;
+import com.lichkin.framework.defines.entities.I_Locale;
+import com.lichkin.framework.defines.entities.I_LoginId;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public class BaseAppCompNewsEntity extends BaseAppCompEntity {
+public class BaseAppCompNewsEntity extends BaseAppCompEntity implements I_LoginId, I_Locale {
 
 	/** serialVersionUID */
 	private static final long serialVersionUID = 1L;

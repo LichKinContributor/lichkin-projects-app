@@ -12,6 +12,7 @@ import com.lichkin.framework.db.beans.SysAppNewsR;
 import com.lichkin.framework.db.enums.LikeType;
 import com.lichkin.framework.defines.enums.impl.LKClientTypeEnum;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppNewsEntity;
 import com.lichkin.springframework.services.LKApiBusGetPageService;
 
@@ -19,7 +20,7 @@ import com.lichkin.springframework.services.LKApiBusGetPageService;
 public class S extends LKApiBusGetPageService<I, O, SysAppNewsEntity> {
 
 	@Override
-	protected Page<O> beforeQuery(I sin, String locale, String compId, String loginId) {
+	protected Page<O> beforeQuery(I sin, ApiKeyValues<I> params) {
 		if (StringUtils.isBlank(sin.getAppKey())) {
 			return emptyPage();
 		}
@@ -28,7 +29,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppNewsEntity> {
 
 
 	@Override
-	protected void initSQL(I sin, String locale, String compId, String loginId, QuerySQL sql) {
+	protected void initSQL(I sin, ApiKeyValues<I> params, QuerySQL sql) {
 		// 主表
 		sql.select(SysAppNewsR.id);
 		sql.select(SysAppNewsR.insertTime);
@@ -45,16 +46,16 @@ public class S extends LKApiBusGetPageService<I, O, SysAppNewsEntity> {
 		// 字典表
 		int i = 0;
 		LKDictUtils4App.newsUsingStatus(sql, SysAppNewsR.usingStatus, i++);
-		LKDictUtils4App.appKey(sql, compId, SysAppNewsR.appKey, i++);
+		LKDictUtils4App.appKey(sql, params.getCompId(), SysAppNewsR.appKey, i++);
 		LKDictUtils.clientType(sql, SysAppNewsR.clientType, i++);
-		LKDictUtils4App.newsCategory(sql, compId, SysAppNewsR.categoryCode, i++);
+		LKDictUtils4App.newsCategory(sql, params.getCompId(), SysAppNewsR.categoryCode, i++);
 		LKDictUtils4App.newsTemplate(sql, SysAppNewsR.templateCode, i++);
 
 		// 筛选条件（必填项）
-		// 公司ID
-		addConditionCompId(true, sql, SysAppNewsR.compId, compId, sin.getCompId());
-		// 在用状态
-		addConditionUsingStatus(sql, SysAppNewsR.usingStatus, compId, sin.getUsingStatus(), LKUsingStatusEnum.STAND_BY, LKUsingStatusEnum.USING);
+//		addConditionId(sql, SysAppNewsR.id, params.getId());
+		addConditionLocale(sql, SysAppNewsR.locale, params.getLocale());
+		addConditionCompId(true, sql, SysAppNewsR.compId, params.getCompId(), params.getBusCompId());
+		addConditionUsingStatus(true, params.getCompId(), sql, SysAppNewsR.usingStatus, params.getUsingStatus(), LKUsingStatusEnum.STAND_BY, LKUsingStatusEnum.USING);
 
 		// 筛选条件（业务项）
 		String appKey = sin.getAppKey();
@@ -65,13 +66,6 @@ public class S extends LKApiBusGetPageService<I, O, SysAppNewsEntity> {
 		LKClientTypeEnum clientType = sin.getClientType();
 		if (clientType != null) {
 			sql.eq(SysAppNewsR.clientType, clientType);
-		}
-
-		String busLocale = sin.getLocale();
-		if (StringUtils.isNotBlank(busLocale)) {
-			sql.eq(SysAppNewsR.locale, busLocale);
-		} else {
-			sql.eq(SysAppNewsR.locale, locale);
 		}
 
 		String categoryCode = sin.getCategoryCode();

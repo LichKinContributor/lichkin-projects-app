@@ -7,6 +7,8 @@ import com.lichkin.framework.defines.annotations.ClassGenerator;
 import com.lichkin.framework.defines.annotations.FieldGenerator;
 import com.lichkin.framework.defines.annotations.InsertCheckType;
 import com.lichkin.framework.defines.annotations.UpdateCheckType;
+import com.lichkin.framework.defines.entities.I_Locale;
+import com.lichkin.framework.defines.entities.I_LoginId;
 import com.lichkin.springframework.entities.suppers.BaseAppEntity;
 
 import lombok.Getter;
@@ -32,7 +34,7 @@ import lombok.Setter;
 		, pageResultColumns = { "String loginName 登录名 SysUserLoginR", "String cellphone 手机号码 SysUserLoginR" }
 
 )
-public class SysAppApiRequestLogEntity extends BaseAppEntity {
+public class SysAppApiRequestLogEntity extends BaseAppEntity implements I_LoginId, I_Locale {
 
 	/** serialVersionUID */
 	private static final long serialVersionUID = 60000L;

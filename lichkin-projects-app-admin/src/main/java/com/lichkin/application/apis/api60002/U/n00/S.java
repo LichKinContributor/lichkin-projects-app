@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lichkin.application.services.bus.impl.SysAppBannerBusService;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppBannerEntity;
 import com.lichkin.springframework.services.LKApiBusUpdateWithoutCheckerService;
 
@@ -15,7 +16,7 @@ public class S extends LKApiBusUpdateWithoutCheckerService<I, SysAppBannerEntity
 
 
 	@Override
-	protected void beforeSaveMain(I sin, String locale, String compId, String loginId, SysAppBannerEntity entity) {
+	protected void beforeSaveMain(I sin, ApiKeyValues<I> params, SysAppBannerEntity entity) {
 		entity.setVersions(busService.analysisVersions(sin.getVersions()));
 		entity.setCategoryCode(busService.analysisCategoryCode(sin.getCategoryCode()));
 		entity.setContent(busService.analysisContent(false, entity, sin.getContent()));

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.lichkin.framework.utils.LKHtmlUtils;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppBannerEntity;
 import com.lichkin.springframework.services.LKApiBusGetOneService;
 
@@ -17,7 +18,7 @@ public class S extends LKApiBusGetOneService<I, O, SysAppBannerEntity> {
 
 
 	@Override
-	protected void setOtherValues(SysAppBannerEntity entity, String id, I sin, String locale, String compId, String loginId, O out) {
+	protected void setOtherValues(SysAppBannerEntity entity, String id, I sin, ApiKeyValues<I> params, O out) {
 		out.setBanner(filesServerRootUrl + out.getBanner());
 		if (StringUtils.isNotBlank(entity.getContent())) {
 			out.setContent(LKHtmlUtils.replaceImgTag_src(entity.getContent(), filesServerRootUrl));

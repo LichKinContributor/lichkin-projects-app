@@ -10,15 +10,9 @@ import lombok.Setter;
 @Setter
 public class I extends LKRequestBean {
 
-	private String compId;
-
 	private String appKey;
 
 	private LKClientTypeEnum clientType;
-
-	private String loginId;
-
-	private String locale;
 
 	private String versions;
 

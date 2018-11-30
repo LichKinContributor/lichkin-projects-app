@@ -16,15 +16,9 @@ public class O {
 
 	private String insertTime;
 
-//	private String compId;
-
 	private String appKey;
 
 	private LKClientTypeEnum clientType;
-
-	private String loginId;
-
-	private String locale;
 
 	private String versions;
 

@@ -7,6 +7,7 @@ import com.lichkin.framework.defines.enums.impl.LKErrorCodesEnum;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 import com.lichkin.framework.defines.exceptions.LKRuntimeException;
 import com.lichkin.framework.utils.LKDateTimeUtils;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppBannerEntity;
 import com.lichkin.springframework.services.LKApiBusUpdateUsingStatusService;
 
@@ -20,8 +21,8 @@ public class S extends LKApiBusUpdateUsingStatusService<I, SysAppBannerEntity> {
 
 
 	@Override
-	protected void beforeSaveMain(I sin, String locale, String compId, String loginId, SysAppBannerEntity entity, String id) {
-		if (LKUsingStatusEnum.STAND_BY.equals(entity.getUsingStatus()) && LKUsingStatusEnum.USING.equals(sin.getUsingStatus())) {
+	protected void beforeSaveMain(I sin, ApiKeyValues<I> params, SysAppBannerEntity entity, String id) {
+		if (LKUsingStatusEnum.STAND_BY.equals(entity.getUsingStatus())) {
 			// 待发布 -> 已发布
 			entity.setTemplateCode(sin.getTemplateCode());
 			entity.setPublishTime(LKDateTimeUtils.now());

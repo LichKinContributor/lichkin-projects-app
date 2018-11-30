@@ -9,6 +9,7 @@ import com.lichkin.framework.db.beans.SysAppSignInLogR;
 import com.lichkin.framework.defines.enums.LKCodeEnum;
 import com.lichkin.framework.defines.enums.impl.LKDateTimeTypeEnum;
 import com.lichkin.framework.utils.LKDateTimeUtils;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppSignInLogEntity;
 import com.lichkin.springframework.services.LKApiBusInsertService;
 
@@ -32,10 +33,10 @@ public class S extends LKApiBusInsertService<I, SysAppSignInLogEntity> {
 
 
 	@Override
-	protected List<SysAppSignInLogEntity> findExist(I sin, String locale, String compId, String loginId) {
+	protected List<SysAppSignInLogEntity> findExist(I sin, ApiKeyValues<I> params) {
 		QuerySQL sql = new QuerySQL(SysAppSignInLogEntity.class);
 
-		sql.eq(SysAppSignInLogR.loginId, loginId);
+		sql.eq(SysAppSignInLogR.loginId, params.getLoginId());
 		sql.eq(SysAppSignInLogR.signDate, LKDateTimeUtils.now(LKDateTimeTypeEnum.DATE_ONLY));
 
 		return dao.getList(sql, SysAppSignInLogEntity.class);
@@ -43,19 +44,19 @@ public class S extends LKApiBusInsertService<I, SysAppSignInLogEntity> {
 
 
 	@Override
-	protected boolean forceCheck(I sin, String locale, String compId, String loginId) {
+	protected boolean forceCheck(I sin, ApiKeyValues<I> params) {
 		return true;
 	}
 
 
 	@Override
-	protected LKCodeEnum existErrorCode(I sin, String locale, String compId, String loginId) {
+	protected LKCodeEnum existErrorCode(I sin, ApiKeyValues<I> params) {
 		return ErrorCodes.app_signed_in_today;
 	}
 
 
 	@Override
-	protected void beforeSaveMain(I sin, String locale, String compId, String loginId, SysAppSignInLogEntity entity) {
+	protected void beforeSaveMain(I sin, ApiKeyValues<I> params, SysAppSignInLogEntity entity) {
 		entity.setAppKey(sin.getDatas().getAppKey());
 		entity.setSignDate(LKDateTimeUtils.now(LKDateTimeTypeEnum.DATE_ONLY));
 	}

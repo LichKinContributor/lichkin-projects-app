@@ -18,6 +18,7 @@ import com.lichkin.framework.defines.LKFrameworkStatics;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 import com.lichkin.framework.defines.exceptions.LKException;
 import com.lichkin.framework.utils.LKListUtils;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppBannerEntity;
 import com.lichkin.springframework.services.LKApiService;
 import com.lichkin.springframework.services.LKApiServiceImpl;
@@ -35,19 +36,24 @@ public class S extends LKApiServiceImpl<I, List<O>> implements LKApiService<I, L
 
 
 	@Override
-	public List<O> handle(I sin, String locale, String compId, String loginId) throws LKException {
-		return LKListUtils.convert(getListEntity(sin), source -> new O(filesServerRootUrl + source.getBanner(), apisServerRootUrl + AppStatics.PAGE_URL_APP_BANNER + LKFrameworkStatics.WEB_MAPPING_PAGES + "?id=" + source.getId(), source.getTitle()));
+	public List<O> handle(I sin, ApiKeyValues<I> params) throws LKException {
+		return LKListUtils.convert(getListEntity(sin, params), source -> new O(filesServerRootUrl + source.getBanner(), apisServerRootUrl + AppStatics.PAGE_URL_APP_BANNER + LKFrameworkStatics.WEB_MAPPING_PAGES + "?id=" + source.getId(), source.getTitle()));
 	}
 
 
-	private List<SysAppBannerEntity> getListEntity(I sin) {
+	private List<SysAppBannerEntity> getListEntity(I sin, ApiKeyValues<I> params) {
 		Datas datas = sin.getDatas();
 
 		QuerySQL sql = new QuerySQL(false, SysAppBannerEntity.class);
 
+		// 国际化
+//		addConditionId(sql, SysAppBannerR.id, params.getId());
+		addConditionLocale(sql, SysAppBannerR.locale, params.getLocale());
+		addConditionCompId(true, sql, SysAppBannerR.compId, params.getCompId(), params.getBusCompId());
+		addConditionUsingStatus(true, params.getCompId(), sql, SysAppBannerR.usingStatus, params.getUsingStatus(), LKUsingStatusEnum.USING);
+
 		sql.eq(SysAppBannerR.usingStatus, LKUsingStatusEnum.USING);
-		sql.eq(SysAppBannerR.compId, datas.getCompId());
-		sql.eq(SysAppBannerR.locale, datas.getLocale());
+		sql.eq(SysAppBannerR.compId, params.getCompId());
 		sql.eq(SysAppBannerR.appKey, datas.getAppKey());
 		sql.eq(SysAppBannerR.clientType, datas.getClientType());
 

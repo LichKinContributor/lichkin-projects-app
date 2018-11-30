@@ -4,12 +4,16 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
 } : {}), {
   i18nKey : 'appFeedbackMgmt',
   $appendTo : true,
-  cols : 4,
-  url : '/SysAppFeedback/P',
+  cols : 6,
+  url : '/ROOT_GetAppFeedbackPage',
   columns : [
       {
+        text : 'appKey',
+        width : 100,
+        name : 'appKey'
+      }, {
         text : 'clientType',
-        width : 160,
+        width : 80,
         name : 'clientType'
       }, {
         text : 'version',
@@ -28,12 +32,21 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
         }
       }, {
         text : 'cellphone',
-        width : 160,
+        width : 100,
         formatter : function(rowData) {
           if (rowData.cellphone == null) {
             return '';
           }
           return rowData.cellphone;
+        }
+      }, {
+        text : 'userName',
+        width : 80,
+        formatter : function(rowData) {
+          if (rowData.userName == null) {
+            return '';
+          }
+          return rowData.userName;
         }
       }, {
         text : 'insertTime',
@@ -44,7 +57,8 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
       }, {
         text : 'content',
         width : null,
-        name : 'content'
+        name : 'content',
+        textAlign : 'left'
       }
   ],
   pageable : true,
@@ -107,8 +121,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
           name : 'appKey',
           param : {
             categoryCode : 'APP_KEY'
-          },
-          validator : true
+          }
         }
       }, {
         plugin : 'droplist',
@@ -119,6 +132,18 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
             categoryCode : 'CLIENT_TYPE',
             excludes : 'JAVASCRIPT'
           }
+        }
+      }, {
+        plugin : 'textbox',
+        options : {
+          name : 'loginName',
+          cls : 'fuzzy-left fuzzy-right'
+        }
+      }, {
+        plugin : 'textbox',
+        options : {
+          name : 'cellphone',
+          cls : 'fuzzy-right'
         }
       }, {
         plugin : 'datepicker',

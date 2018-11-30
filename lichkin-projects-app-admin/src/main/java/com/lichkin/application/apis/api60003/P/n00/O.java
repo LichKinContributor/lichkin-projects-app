@@ -21,8 +21,6 @@ public class O {
 
 	private String clientTypeDictCode;// for clientType
 
-	private String locale;
-
 	private String versions;
 
 	private String categoryCode;

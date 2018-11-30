@@ -20,6 +20,7 @@ import com.lichkin.framework.db.enums.LikeType;
 import com.lichkin.framework.defines.LKFrameworkStatics;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 import com.lichkin.framework.defines.exceptions.LKException;
+import com.lichkin.springframework.controllers.ApiKeyValues;
 import com.lichkin.springframework.entities.impl.SysAppNewsEntity;
 import com.lichkin.springframework.services.LKApiService;
 import com.lichkin.springframework.services.LKApiServiceImpl;
@@ -38,8 +39,8 @@ public class S extends LKApiServiceImpl<I, Page<O>> implements LKApiService<I, P
 
 
 	@Override
-	public Page<O> handle(I sin, String locale, String compId, String loginId) throws LKException {
-		return LKPageUtils.convert(getPageEntity(sin), source -> {
+	public Page<O> handle(I sin, ApiKeyValues<I> params) throws LKException {
+		return LKPageUtils.convert(getPageEntity(sin, params), source -> {
 			O target = new O(apisServerRootUrl + AppStatics.PAGE_URL_APP_NEWS + LKFrameworkStatics.WEB_MAPPING_PAGES + "?id=" + source.getId(), source.getTitle(), source.getBrief());
 
 			List<String> imageList = new ArrayList<>();
@@ -95,14 +96,19 @@ public class S extends LKApiServiceImpl<I, Page<O>> implements LKApiService<I, P
 	}
 
 
-	private Page<SysAppNewsEntity> getPageEntity(I sin) {
+	private Page<SysAppNewsEntity> getPageEntity(I sin, ApiKeyValues<I> params) {
 		Datas datas = sin.getDatas();
 
 		QuerySQL sql = new QuerySQL(false, SysAppNewsEntity.class);
 
+		// 国际化
+//		addConditionId(sql, SysAppNewsR.id, params.getId());
+		addConditionLocale(sql, SysAppNewsR.locale, params.getLocale());
+		addConditionCompId(true, sql, SysAppNewsR.compId, params.getCompId(), params.getBusCompId());
+		addConditionUsingStatus(true, params.getCompId(), sql, SysAppNewsR.usingStatus, params.getUsingStatus(), LKUsingStatusEnum.USING);
+
 		sql.eq(SysAppNewsR.usingStatus, LKUsingStatusEnum.USING);
-		sql.eq(SysAppNewsR.compId, datas.getCompId());
-		sql.eq(SysAppNewsR.locale, datas.getLocale());
+		sql.eq(SysAppNewsR.compId, params.getCompId());
 		sql.eq(SysAppNewsR.appKey, datas.getAppKey());
 		sql.eq(SysAppNewsR.clientType, datas.getClientType());
 
