@@ -20,16 +20,9 @@ public class S extends LKApiBusGetListService<I, O, SysCompEntity> {
 		sql.select(SysCompR.abbreviation, "tabName");
 		sql.select(SysCompR.photo, "tabIcon");
 
-		// 关联表
-
-		// 字典表
-//		int i = 0;
-
 		// 筛选条件（必填项）
-//		addConditionId(sql, SysCompR.id, params.getId());
-//		addConditionLocale(sql, SysCompR.locale, params.getLocale());
-//		addConditionCompId(true, sql, SysCompR.compId, params.getCompId(), params.getBusCompId());
-		addConditionUsingStatus(true, params.getCompId(), sql, SysCompR.usingStatus, params.getUsingStatus(), LKUsingStatusEnum.STAND_BY, LKUsingStatusEnum.USING);
+		sql.eq(SysCompR.id, params.getCompId());
+		sql.eq(SysCompR.usingStatus, LKUsingStatusEnum.USING);
 
 		// 排序条件
 		sql.addOrders(new Order(SysCompR.id));
