@@ -1,13 +1,38 @@
 @charset "UTF-8";
 
-img {
-  width: 300px;
+body {
+  background-color: white;
 }
 
-html, body {
-  margin: 0px 0px;
+img {
   width: 100%;
-  height: 100%;
+}
+
+.newsHeader {
+  margin: 10px;
+}
+
+.newsHeader .newsTitle {
+  color: #717171;
+}
+
+.newsHeader .newsPublishTime {
+  font-size: 12px;
+  color: #bdbdbd;
+  padding-top: 2px;
+}
+
+.newsContent {
+  background-color: #F6F6F6;
+}
+
+.newsContentInfo {
+  color: #2F2F2F;
+  padding: 0 18px;
+  font-size: 18px;
+  line-height: 1.56em;
+  overflow: hidden;
+  text-align: justify;
 }
 
 iframe {
