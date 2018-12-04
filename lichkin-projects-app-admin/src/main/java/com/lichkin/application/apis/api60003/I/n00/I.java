@@ -1,6 +1,7 @@
 package com.lichkin.application.apis.api60003.I.n00;
 
 import com.lichkin.framework.beans.impl.LKRequestBean;
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 import com.lichkin.framework.defines.enums.impl.LKClientTypeEnum;
 
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class I extends LKRequestBean {
 
 	private String author;
 
+	@IgnoreLog
 	private String content;
 
 	private String linkUrl;

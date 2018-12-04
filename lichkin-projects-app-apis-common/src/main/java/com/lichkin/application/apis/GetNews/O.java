@@ -1,5 +1,6 @@
 package com.lichkin.application.apis.GetNews;
 
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 import com.lichkin.framework.defines.enums.impl.LKClientTypeEnum;
 
 import lombok.Getter;
@@ -40,6 +41,7 @@ public class O {
 	private String author;
 
 	/** 内容（body内直接可以用于展现的内容） */
+	@IgnoreLog
 	private String content;
 
 	/** 外链地址 */

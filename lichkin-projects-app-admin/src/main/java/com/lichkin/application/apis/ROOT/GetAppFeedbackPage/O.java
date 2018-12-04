@@ -1,5 +1,7 @@
 package com.lichkin.application.apis.ROOT.GetAppFeedbackPage;
 
+import com.lichkin.framework.defines.annotations.IgnoreLog;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +33,7 @@ public class O {
 
 	private String content;
 
+	@IgnoreLog
 	private String img;
 
 	/** 登录名 */

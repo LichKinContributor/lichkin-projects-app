@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 import com.lichkin.framework.beans.impl.LKRequestBean;
 import com.lichkin.framework.constraints.BASE64;
 import com.lichkin.framework.constraints.Text;
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,7 @@ public class I extends LKRequestBean {
 
 	/** 图片（Base64） */
 	@BASE64
+	@IgnoreLog
 	private String img;
 
 }

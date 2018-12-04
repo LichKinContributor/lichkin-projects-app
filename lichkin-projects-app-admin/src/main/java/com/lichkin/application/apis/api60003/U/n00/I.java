@@ -1,6 +1,7 @@
 package com.lichkin.application.apis.api60003.U.n00;
 
 import com.lichkin.framework.beans.impl.LKRequestIDBean;
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class I extends LKRequestIDBean {
 
 	private String author;
 
+	@IgnoreLog
 	private String content;
 
 	private String linkUrl;

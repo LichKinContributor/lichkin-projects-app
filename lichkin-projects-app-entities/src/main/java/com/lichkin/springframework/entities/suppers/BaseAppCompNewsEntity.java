@@ -7,6 +7,7 @@ import javax.persistence.MappedSuperclass;
 import com.lichkin.framework.defines.annotations.DefaultByteValue;
 import com.lichkin.framework.defines.annotations.DefaultStringValue;
 import com.lichkin.framework.defines.annotations.FieldGenerator;
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 import com.lichkin.framework.defines.annotations.InsertType;
 import com.lichkin.framework.defines.entities.I_Locale;
 import com.lichkin.framework.defines.entities.I_LoginId;
@@ -78,6 +79,7 @@ public class BaseAppCompNewsEntity extends BaseAppCompEntity implements I_LoginI
 
 	/** 内容（body内直接可以用于展现的内容） */
 	@Lob
+	@IgnoreLog
 	@FieldGenerator(insertType = InsertType.CHANGE_HANDLE)
 	@Column
 	private String content;

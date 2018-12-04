@@ -1,5 +1,6 @@
 package com.lichkin.application.apis.api60003.O.n00;
 
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 import com.lichkin.framework.defines.enums.impl.LKClientTypeEnum;
 import com.lichkin.framework.defines.enums.impl.LKUsingStatusEnum;
 
@@ -34,6 +35,7 @@ public class O {
 
 	private String author;
 
+	@IgnoreLog
 	private String content;
 
 	private String linkUrl;

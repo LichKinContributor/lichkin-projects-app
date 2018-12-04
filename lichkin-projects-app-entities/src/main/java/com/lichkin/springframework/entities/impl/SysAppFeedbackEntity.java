@@ -6,6 +6,7 @@ import javax.persistence.Lob;
 
 import com.lichkin.framework.defines.annotations.ClassGenerator;
 import com.lichkin.framework.defines.annotations.FieldGenerator;
+import com.lichkin.framework.defines.annotations.IgnoreLog;
 import com.lichkin.framework.defines.annotations.InsertCheckType;
 import com.lichkin.framework.defines.annotations.UpdateCheckType;
 import com.lichkin.framework.defines.entities.I_Locale;
@@ -57,6 +58,7 @@ public class SysAppFeedbackEntity extends BaseAppEntity implements I_LoginId, I_
 
 	/** 反馈图片（Base64） */
 	@Lob
+	@IgnoreLog
 	@FieldGenerator(resultColumn = true)
 	@Column
 	private String img;
