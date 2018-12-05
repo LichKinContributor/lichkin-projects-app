@@ -99,7 +99,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppBannerEntity> {
 		}
 
 		// 排序条件
-		sql.addOrders(new Order(SysAppBannerR.orderId, false));
+		sql.addOrders(new Order(SysAppBannerR.orderId), new Order(SysAppBannerR.id, false));
 	}
 
 

@@ -94,7 +94,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppNewsEntity> {
 		}
 
 		// 排序条件
-		sql.addOrders(new Order(SysAppNewsR.orderId, false));
+		sql.addOrders(new Order(SysAppNewsR.orderId), new Order(SysAppNewsR.id, false));
 	}
 
 }
