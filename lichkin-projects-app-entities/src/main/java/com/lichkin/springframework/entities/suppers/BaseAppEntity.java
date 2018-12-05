@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 
 import com.lichkin.framework.defines.annotations.FieldGenerator;
+import com.lichkin.framework.defines.entities.I_AppKey;
 import com.lichkin.framework.defines.enums.impl.LKClientTypeEnum;
 
 import lombok.Getter;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class BaseAppEntity extends BaseEntity {
+public abstract class BaseAppEntity extends BaseEntity implements I_AppKey {
 
 	/** serialVersionUID */
 	private static final long serialVersionUID = 1L;
