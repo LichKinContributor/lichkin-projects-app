@@ -39,6 +39,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppNewsEntity> {
 		sql.select(SysAppNewsR.keywords);
 		sql.select(SysAppNewsR.author);
 		sql.select(SysAppNewsR.linkUrl);
+		sql.select(SysAppNewsR.orderId);
 		sql.select(SysAppNewsR.publishTime);
 
 		// 关联表

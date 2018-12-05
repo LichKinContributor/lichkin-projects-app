@@ -35,6 +35,8 @@ public class O {
 
 	private String linkUrl;
 
+	private Byte orderId;
+
 	private String publishTime;
 
 	private String banner;

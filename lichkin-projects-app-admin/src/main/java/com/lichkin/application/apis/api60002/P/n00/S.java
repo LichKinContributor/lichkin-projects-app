@@ -43,6 +43,7 @@ public class S extends LKApiBusGetPageService<I, O, SysAppBannerEntity> {
 		sql.select(SysAppBannerR.keywords);
 		sql.select(SysAppBannerR.author);
 		sql.select(SysAppBannerR.linkUrl);
+		sql.select(SysAppBannerR.orderId);
 		sql.select(SysAppBannerR.publishTime);
 		sql.select(SysAppBannerR.banner);
 

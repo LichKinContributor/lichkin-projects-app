@@ -175,6 +175,10 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
           }
           return $.LKGetI18N(i18nKey + 'VERSION.ALL');
         }
+      }, {
+        text : 'orderId',
+        width : 60,
+        name : 'orderId',
       }
   ],
   pageable : true,
