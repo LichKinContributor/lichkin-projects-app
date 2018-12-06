@@ -130,6 +130,18 @@ class SysAppRInitializer implements LKRInitializer {
 		LKDBResource.addColumn("60006008", "SysAppSignInLogEntity", "loginId");
 		LKDBResource.addColumn("60006009", "SysAppSignInLogEntity", "locale");
 		LKDBResource.addColumn("60006010", "SysAppSignInLogEntity", "signDate");
+		LKDBResource.addTable("com.lichkin.springframework.entities.impl.SysAppEmployeeModuleConfigEntity", "T_SYS_APP_EMPLOYEE_MODULE_CONFIG", "SysAppEmployeeModuleConfigEntity");
+		LKDBResource.addColumn("60007000", "SysAppEmployeeModuleConfigEntity", "id");
+		LKDBResource.addColumn("60007001", "SysAppEmployeeModuleConfigEntity", "moduleType");
+		LKDBResource.addColumn("60007002", "SysAppEmployeeModuleConfigEntity", "moduleName");
+		LKDBResource.addColumn("60007003", "SysAppEmployeeModuleConfigEntity", "onLine");
+		LKDBResource.addColumn("60007004", "SysAppEmployeeModuleConfigEntity", "auth");
+		LKDBResource.addColumn("60007005", "SysAppEmployeeModuleConfigEntity", "icon");
+		LKDBResource.addColumn("60007006", "SysAppEmployeeModuleConfigEntity", "url");
+		LKDBResource.addTable("com.lichkin.springframework.entities.impl.SysAppEmployeeModuleEntity", "T_SYS_APP_EMPLOYEE_MODULE", "SysAppEmployeeModuleEntity");
+		LKDBResource.addColumn("60008000", "SysAppEmployeeModuleEntity", "id");
+		LKDBResource.addColumn("60008001", "SysAppEmployeeModuleEntity", "employeeId");
+		LKDBResource.addColumn("60008002", "SysAppEmployeeModuleEntity", "configId");
 	}
 
 }
