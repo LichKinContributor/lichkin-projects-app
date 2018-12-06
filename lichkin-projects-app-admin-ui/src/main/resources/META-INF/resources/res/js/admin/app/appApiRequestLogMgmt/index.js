@@ -1,6 +1,6 @@
 LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
   title : 'title',
-  icon : 'operLog',
+  icon : 'appApiRequestLogMgmt',
 } : {}), {
   i18nKey : 'appApiRequestLogMgmt',
   $appendTo : true,
@@ -9,15 +9,21 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
   columns : [
       {
         text : 'appKey',
-        width : 150,
+        width : 100,
         name : 'appKey'
       }, {
         text : 'clientType',
-        width : 100,
+        width : 80,
         name : 'clientType'
       }, {
+        text : 'version',
+        width : 100,
+        formatter : function(rowData) {
+          return rowData.versionX + '.' + rowData.versionY + '.' + rowData.versionZ;
+        }
+      }, {
         text : 'loginName',
-        width : 120,
+        width : 200,
         name : 'loginName'
       }, {
         text : 'cellphone',
@@ -28,22 +34,16 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
         width : 80,
         name : 'userName'
       }, {
-        text : 'versions',
-        width : 100,
-        formatter : function(rowData) {
-          return rowData.versionX + '.' + rowData.versionY + '.' + rowData.versionZ;
-        }
-      }, {
         text : 'locale',
         width : 80,
         name : 'locale'
       }, {
         text : 'osVersion',
-        width : 150,
+        width : 100,
         name : 'osVersion'
       }, {
         text : 'brand',
-        width : null,
+        width : 150,
         name : 'brand'
       }, {
         text : 'model',
@@ -51,15 +51,15 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
         name : 'model'
       }, {
         text : 'uuid',
-        width : 150,
+        width : 250,
         name : 'uuid'
       }, {
         text : 'screenWidth',
-        width : 80,
+        width : 60,
         name : 'screenWidth'
       }, {
         text : 'screenHeight',
-        width : 80,
+        width : 60,
         name : 'screenHeight'
       }, {
         text : 'insertTime',

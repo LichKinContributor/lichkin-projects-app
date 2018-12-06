@@ -1,3 +1,3 @@
 $.LKExtendICON({
-  'operLog' : 'book-open',
+  'appApiRequestLogMgmt' : 'book-open',
 });

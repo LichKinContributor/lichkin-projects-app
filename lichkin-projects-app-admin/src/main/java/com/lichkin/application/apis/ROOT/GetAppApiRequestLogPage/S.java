@@ -47,7 +47,6 @@ public class S extends LKApiBusGetPageService<I, O, SysAppApiRequestLogEntity> {
 
 		// 字典表
 		int i = 0;
-		LKDictUtils.usingStatus(sql, SysAppApiRequestLogR.usingStatus, i++);
 		LKDictUtils4App.appKey(sql, params.getCompId(), SysAppApiRequestLogR.appKey, i++);
 		LKDictUtils.clientType(sql, SysAppApiRequestLogR.clientType, i++);
 

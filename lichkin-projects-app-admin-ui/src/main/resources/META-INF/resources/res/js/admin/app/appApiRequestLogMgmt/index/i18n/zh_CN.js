@@ -11,7 +11,7 @@ $.LKExtendI18N({
         'loginName' : '登录名',
         'cellphone' : '手机号码',
         'userName' : '用户姓名',
-        'versions' : '客户端版本号',
+        'version' : '客户端版本号',
         'locale' : '国际化编码',
         'osVersion' : '客户端系统版本',
         'brand' : '生产厂商',
