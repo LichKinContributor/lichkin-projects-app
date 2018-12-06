@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class LKDictUtils4App extends LKDictUtils {
 
 	/**
-	* 连接字典表（客户端版本状态）
+	 * 连接字典表（客户端版本状态）
 	 * @param sql SQL语句对象
 	 * @param columnResId 列资源ID
 	 * @param tableIdx 字典表序号（从0开始）
@@ -25,7 +25,7 @@ public class LKDictUtils4App extends LKDictUtils {
 
 
 	/**
-	* 连接字典表（新闻状态）
+	 * 连接字典表（新闻状态）
 	 * @param sql SQL语句对象
 	 * @param columnResId 列资源ID
 	 * @param tableIdx 字典表序号（从0开始）
@@ -36,7 +36,7 @@ public class LKDictUtils4App extends LKDictUtils {
 
 
 	/**
-	* 连接字典表（客户端唯一标识）
+	 * 连接字典表（客户端唯一标识）
 	 * @param sql SQL语句对象
 	 * @param compId 公司ID
 	 * @param columnResId 列资源ID
@@ -48,7 +48,7 @@ public class LKDictUtils4App extends LKDictUtils {
 
 
 	/**
-	* 连接字典表（分类编码）
+	 * 连接字典表（分类编码）
 	 * @param sql SQL语句对象
 	 * @param compId 公司ID
 	 * @param columnResId 列资源ID
@@ -60,7 +60,7 @@ public class LKDictUtils4App extends LKDictUtils {
 
 
 	/**
-	* 连接字典表（模板编码）
+	 * 连接字典表（模板编码）
 	 * @param sql SQL语句对象
 	 * @param columnResId 列资源ID
 	 * @param tableIdx 字典表序号（从0开始）
