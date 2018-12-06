@@ -52,15 +52,16 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 	@Override
 	@Transactional
 	public O handle(I sin, ApiKeyValues<I> params) throws LKException {
-		// 存储日志
-		I originalObject = params.getOriginalObject();
-		SysAppApiRequestLogEntity log = LKBeanUtils.newInstance(true, originalObject.getDatas(), SysAppApiRequestLogEntity.class);
-		LKBeanUtils.copyProperties(originalObject, log, "id");
-		log.setLocale(params.getLocale());
-		dao.persistOne(log);
-
 		// 取统一请求参数
 		Datas datas = sin.getDatas();
+
+		// 存储日志
+		SysAppApiRequestLogEntity log = LKBeanUtils.newInstance(true, datas, SysAppApiRequestLogEntity.class);
+		LKBeanUtils.copyProperties(sin, log, "id");
+		log.setLocale(params.getLocale());
+		log.setAppKey(datas.getAppKey());
+		log.setLoginId(params.getLoginId());
+		dao.persistOne(log);
 
 		// 查询发送当前请求的版本信息
 		SysAppVersionEntity entity = getCurrentAppVersion(datas);
