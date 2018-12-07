@@ -69,4 +69,16 @@ public class LKDictUtils4App extends LKDictUtils {
 		leftJoinDictionary(sql, "templateCode", LKFrameworkStatics.LichKin, "NEWS_TEMPLATE", columnResId, tableIdx);
 	}
 
+
+	/**
+	 * 连接字典表（模块类型）
+	 * @param sql SQL语句对象
+	 * @param compId 公司ID
+	 * @param columnResId 列资源ID
+	 * @param tableIdx 字典表序号（从0开始）
+	 */
+	public static void moduleType(QuerySQL sql, String compId, int columnResId, int tableIdx) {
+		leftJoinDictionary(sql, "moduleType", compId, "APP_MODULE_TYPE", columnResId, tableIdx);
+	}
+
 }
