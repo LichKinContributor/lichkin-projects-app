@@ -54,7 +54,7 @@ public class S extends LKApiBusGetListService<I, O, SysAppEmployeeModuleConfigEn
 
 				new Condition(SysAppEmployeeModuleConfigR.id, SysAppEmployeeModuleR.configId),
 
-				new Condition(new eq(SysAppEmployeeModuleR.employeeId, params.getLoginId()))
+				new Condition(new eq(SysAppEmployeeModuleR.employeeId, params.getUser().getId()))
 
 		);
 
