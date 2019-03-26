@@ -32,13 +32,13 @@ public class SysAppBannerBusService {
 	}
 
 
+	/** 文件服务器URL根路径 */
+	@Value("${com.lichkin.files.server.rootUrl:http://files.lichkin.com}")
+	private String filesServerRootUrl;
+
 	/** 文件服务器保存根路径 */
 	@Value("${com.lichkin.files.save.path:/opt/files}")
 	private String filesSaveRootPath;
-
-	/** 文件服务器URL根路径 */
-	@Value("${com.lichkin.files.server.rootUrl}")
-	private String filesServerRootUrl;
 
 	/** 内容中的图片保存子路径 */
 	private static final String BANNER_IMAGES_PATH = "/images/banner";

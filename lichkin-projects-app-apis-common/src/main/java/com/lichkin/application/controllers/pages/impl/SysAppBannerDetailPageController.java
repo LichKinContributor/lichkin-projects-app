@@ -23,7 +23,7 @@ public class SysAppBannerDetailPageController extends LKPagesController {
 	private SysAppBannerService service;
 
 	/** 文件服务器URL根路径 */
-	@Value("${com.lichkin.files.server.rootUrl}")
+	@Value("${com.lichkin.files.server.rootUrl:http://files.lichkin.com}")
 	private String filesServerRootUrl;
 
 

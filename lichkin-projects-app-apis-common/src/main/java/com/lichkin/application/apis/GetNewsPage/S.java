@@ -30,11 +30,11 @@ import com.lichkin.springframework.utils.LKPageUtils;
 public class S extends LKApiServiceImpl<I, Page<O>> implements LKApiService<I, Page<O>> {
 
 	/** 文件服务器URL根路径 */
-	@Value("${com.lichkin.files.server.rootUrl}")
+	@Value("${com.lichkin.files.server.rootUrl:http://files.lichkin.com}")
 	private String filesServerRootUrl;
 
 	/** 接口服务器URL根路径 */
-	@Value("${com.lichkin.apis.server.rootUrl}")
+	@Value("${com.lichkin.apis.server.rootUrl:http://apis.lichkin.com}")
 	private String apisServerRootUrl;
 
 
