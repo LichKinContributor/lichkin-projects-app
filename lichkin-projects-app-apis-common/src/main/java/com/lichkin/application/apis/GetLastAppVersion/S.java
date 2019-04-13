@@ -1,7 +1,6 @@
 package com.lichkin.application.apis.GetLastAppVersion;
 
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -87,14 +86,20 @@ public class S extends LKApiServiceImpl<I, O> implements LKApiService<I, O> {
 		// 获取最新版本信息
 		O out = list.get(0);
 		out.setForceUpdate(entity.getForceUpdate());// 当前版本是否需要强制更新
-		if (StringUtils.isNotBlank(out.getTip())) {
+		tipIf: if (StringUtils.isNotBlank(out.getTip())) {
 			String[] tips = out.getTip().split(LKFrameworkStatics.SPLITOR_FIELDS);
 			String locale = params.getLocale();
-			if (locale.equals(Locale.SIMPLIFIED_CHINESE.toString())) {
-				out.setTip(tips[1].split(LKFrameworkStatics.SPLITOR)[1]);
-			} else if (locale.equals(Locale.ENGLISH.toString())) {
-				out.setTip(tips[0].split(LKFrameworkStatics.SPLITOR)[1]);
+			for (String tip : tips) {
+				String[] localeTips = tip.split(LKFrameworkStatics.SPLITOR);
+				if (localeTips.length != 2) {
+					continue;
+				}
+				if (localeTips[0].equals(locale)) {
+					out.setTip(localeTips[1]);
+					break tipIf;
+				}
 			}
+			out.setTip("Welcome to use this app.");
 		}
 		return out;
 	}
