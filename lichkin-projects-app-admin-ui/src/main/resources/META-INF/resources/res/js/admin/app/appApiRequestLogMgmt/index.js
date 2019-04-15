@@ -51,7 +51,7 @@ LK.UI.datagrid($.extend((typeof LK.home == 'undefined' ? {
         name : 'model'
       }, {
         text : 'uuid',
-        width : 250,
+        width : 260,
         name : 'uuid'
       }, {
         text : 'screenWidth',
